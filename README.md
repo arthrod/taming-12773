@@ -14,7 +14,7 @@ You can check my blog at Medium at synthetic.lawyer
 ## Dataset
 The dataset used in this project consists of 12,773 agreements extracted from SEC filings, each labeled as "Exhibit 10" in the EDGAR database. These documents represent a variety of material contracts that public companies are required to disclose.
 
-The full dataset is available on Hugging Face: arthrod/taming-12773 (https://huggingface.co/datasets/arthrod/tqming-12773
+The full dataset is available on Hugging Face: arthrod/taming-12773 (https://huggingface.co/datasets/arthrod/tqming-12773)
 
 ## Methodology
 1. **Data Collection**: Agreements were sourced from the SEC's EDGAR database.
@@ -54,7 +54,7 @@ Contributions to this project are welcome! Please feel free to submit a Pull Req
 MIT
 
 ## Contact
-For questions or feedback, please email me at arthur@cicero.chat.
+For questions or feedback, please email me at arthur@umich.edu
 
 ---
 
