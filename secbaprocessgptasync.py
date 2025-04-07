@@ -1,7 +1,6 @@
 import asyncio
 import json
 import logging
-import random
 import signal
 from typing import List
 
@@ -11,6 +10,7 @@ from dotenv import load_dotenv
 from openai import AsyncOpenAI
 from pydantic import BaseModel
 from tqdm import tqdm
+import secrets
 
 # Configuration
 INPUT_FILE = "secba_process.jsonl"
@@ -212,7 +212,7 @@ Remember, accuracy and adherence to the schema are crucial. Do not add any field
 
 
 def exponential_backoff(attempt):
-    delay = min(INITIAL_RETRY_DELAY * (2**attempt) + random.uniform(0, 1), 300)
+    delay = min(INITIAL_RETRY_DELAY * (2**attempt) + secrets.SystemRandom().uniform(0, 1), 300)
     logger.info(
         f"Calculated backoff delay: {delay:.2f} seconds for attempt {attempt + 1}"
     )

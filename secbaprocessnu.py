@@ -1,6 +1,5 @@
 import json
 import logging
-import random
 import signal
 import time
 from typing import List
@@ -10,6 +9,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer
+import secrets
 
 # Configuration
 INPUT_FILE = "secba_nu_input.jsonl"  # secba.ndjson
@@ -300,7 +300,7 @@ def predict_NuExtract(
 
 
 def exponential_backoff(attempt):
-    delay = min(INITIAL_RETRY_DELAY * (2**attempt) + random.uniform(0, 1), 300)
+    delay = min(INITIAL_RETRY_DELAY * (2**attempt) + secrets.SystemRandom().uniform(0, 1), 300)
     logger.info(
         f"Calculated backoff delay: {delay:.2f} seconds for attempt {attempt + 1}"
     )
