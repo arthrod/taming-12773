@@ -2,7 +2,6 @@ import copy
 import json
 import logging
 import os
-import random
 import signal
 import time
 from typing import Any, Dict
@@ -17,6 +16,7 @@ from vertexai.generative_models import (
     HarmBlockThreshold,
     HarmCategory,
 )
+import secrets
 
 # Configuration
 INPUT_FILE = "secba.ndjson"
@@ -365,7 +365,7 @@ Remember, accuracy and adherence to the schema are crucial. Do not add any field
 
 
 def exponential_backoff(attempt):
-    delay = min(INITIAL_RETRY_DELAY * (2**attempt) + random.uniform(0, 1), 300)
+    delay = min(INITIAL_RETRY_DELAY * (2**attempt) + secrets.SystemRandom().uniform(0, 1), 300)
     logger.info(
         f"Calculated backoff delay: {delay:.2f} seconds for attempt {attempt + 1}"
     )
